@@ -69,7 +69,7 @@ func TestPseudoLanguage(t *testing.T) {
 hello = "`+expected+`"
 `), "art-x-klingon.toml")
 	{
-		localized, err := NewLocalizer(bundle, "art-x-klingon").Localize(&LocalizeConfig{MessageID: "hello"})
+		localized, _, err := NewLocalizer(bundle, "art-x-klingon").Localize(&LocalizeConfig{MessageID: "hello"})
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -78,7 +78,7 @@ hello = "`+expected+`"
 		}
 	}
 	{
-		localized, err := NewLocalizer(bundle, "art").Localize(&LocalizeConfig{MessageID: "hello"})
+		localized, _, err := NewLocalizer(bundle, "art").Localize(&LocalizeConfig{MessageID: "hello"})
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -88,7 +88,7 @@ hello = "`+expected+`"
 	}
 	{
 		expected := ""
-		localized, err := NewLocalizer(bundle, "en").Localize(&LocalizeConfig{MessageID: "hello"})
+		localized, _, err := NewLocalizer(bundle, "en").Localize(&LocalizeConfig{MessageID: "hello"})
 		if err == nil {
 			t.Fatal(err)
 		}

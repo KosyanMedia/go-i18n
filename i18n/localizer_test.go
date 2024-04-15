@@ -660,7 +660,7 @@ func TestLocalizer_Localize(t *testing.T) {
 					t.Fatal(err)
 				}
 			}
-			check := func(localized string, err error) {
+			check := func(localized string, confidence language.Confidence, err error) {
 				t.Helper()
 				if !reflect.DeepEqual(err, test.expectedErr) {
 					t.Errorf("expected error %#v; got %#v", test.expectedErr, err)
@@ -696,7 +696,7 @@ func BenchmarkLocalizer_Localize(b *testing.B) {
 			localizer := NewLocalizer(bundle, test.acceptLangs...)
 			b.ResetTimer()
 			for i := 0; i < b.N; i++ {
-				_, _ = localizer.Localize(test.conf)
+				_, _, _ = localizer.Localize(test.conf)
 			}
 		})
 	}
