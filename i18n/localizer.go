@@ -190,10 +190,11 @@ func (l *Localizer) LocalizeWithTag(lc *LocalizeConfig) (string, language.Tag, e
 }
 
 func (l *Localizer) getMessageTemplate(id string, defaultMessage *Message) (language.Tag, *MessageTemplate, error) {
-	_, i, _ := l.bundle.matcher.Match(l.tags...)
+	_, i, conf := l.bundle.matcher.Match(l.tags...)
+
 	tag := l.bundle.tags[i]
 	mt := l.bundle.getMessageTemplate(tag, id)
-	if mt != nil {
+	if conf != language.No && mt != nil {
 		return tag, mt, nil
 	}
 
