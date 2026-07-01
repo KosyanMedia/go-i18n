@@ -38,7 +38,7 @@ func TestExtract(t *testing.T) {
 			fileName: "file.go",
 			file: `package main
 
-			import "github.com/nicksnyder/go-i18n/v2/i18n"
+			import "github.com/KosyanMedia/go-i18n/i18n"
 
 			var m1 = &i18n.Message{
 				ID: "m",
