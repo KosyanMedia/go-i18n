@@ -12,8 +12,8 @@ import (
 	"github.com/KosyanMedia/go-i18n/i18n"
 	"github.com/KosyanMedia/go-i18n/internal"
 	"github.com/KosyanMedia/go-i18n/internal/plural"
+	yaml "go.yaml.in/yaml/v3"
 	"golang.org/x/text/language"
-	yaml "gopkg.in/yaml.v2"
 )
 
 func usageMerge() {
@@ -99,7 +99,7 @@ func (mc *mergeCommand) execute() error {
 	}
 	for _, path := range ops.deleteFiles {
 		// Ignore error since it isn't guaranteed to exist.
-		os.Remove(path)
+		_ = os.Remove(path)
 	}
 	return nil
 }

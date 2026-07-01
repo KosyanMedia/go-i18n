@@ -9,8 +9,8 @@ import (
 	"github.com/BurntSushi/toml"
 	"github.com/KosyanMedia/go-i18n/i18n"
 	"github.com/KosyanMedia/go-i18n/internal/plural"
+	yaml "go.yaml.in/yaml/v3"
 	"golang.org/x/text/language"
-	yaml "gopkg.in/yaml.v2"
 )
 
 func writeFile(outdir, label string, langTag language.Tag, format string, messageTemplates map[string]*i18n.MessageTemplate, sourceLanguage bool) (path string, content []byte, err error) {
